@@ -221,7 +221,7 @@ class _AddExpenseState extends State<AddExpense> {
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               ColorPicker(
-                                              pickerColor: Colors.blue,
+                                              pickerColor: categoryColor ?? Colors.blue,
                                                   onColorChanged: (value) {
                                                     setState(() {
                                                       categoryColor = value;
@@ -234,7 +234,6 @@ class _AddExpenseState extends State<AddExpense> {
                                                     height: 50,
                                                     child: TextButton(
                                                       onPressed: () {
-                                                        print(categoryColor);
                                                         Navigator.pop(ctx2);
                                                       },
                                                       style: TextButton.styleFrom(
@@ -271,6 +270,30 @@ class _AddExpenseState extends State<AddExpense> {
                                           )
                                         ),
                                       ),
+                                       const SizedBox(height: 16,),
+                                       SizedBox(
+                                        width: double.infinity,
+                                        height: kToolbarHeight,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            //Create Category Object and POP
+                                            Navigator.pop(context);
+                                          },
+                                          style: TextButton.styleFrom(
+                                            backgroundColor: Colors.black,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(12)
+                                            )
+                                          ),
+                                          child: const Text(
+                                            'Save',
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              color: Colors.white
+                                            ),
+                                          )
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
